@@ -18,7 +18,7 @@ async function bootstrap() {
   const origins = (process.env.CORS_ORIGIN ?? 'http://localhost:3000')
     .split(',')
     .map((o) => o.trim());
-  app.enableCors({ origin: origins });
+  app.enableCors({ origin: origins.includes('*') ? true : origins });
 
   await app.listen(process.env.PORT ?? 3001);
 }
