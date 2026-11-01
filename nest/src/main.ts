@@ -10,6 +10,7 @@ async function bootstrap() {
       whitelist: true, // buang field yang tidak ada di DTO
       forbidNonWhitelisted: true, // tolak request yang membawa field asing
       transform: true, // ubah query string ke tipe di DTO
+      stopAtFirstError: true, // satu pesan per field, bukan semua aturan yang gagal
     }),
   );
 

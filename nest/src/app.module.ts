@@ -5,12 +5,20 @@ import { AuthModule } from './auth/auth.module';
 import { ClockModule } from './common/clock/clock.module';
 import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 import { validateEnv } from './config/env.validation';
+import { DocumentsModule } from './documents/documents.module';
+import { FlightHoursModule } from './flight-hours/flight-hours.module';
+import { PilotModule } from './pilot/pilot.module';
+import { SchedulesModule } from './schedules/schedules.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, validate: validateEnv }),
     ClockModule,
     AuthModule,
+    PilotModule,
+    FlightHoursModule,
+    DocumentsModule,
+    SchedulesModule,
   ],
   providers: [{ provide: APP_FILTER, useClass: AllExceptionsFilter }],
 })
